@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="dvCheck">
+        
+    </div>
+
+    <div id="resultado">
+
+    </div>
+
+    <script>
+
+        var dvCheck = document.getElementById('dvCheck');
+        var resultado = document.getElementById('resultado');
+
+        for(var i = 1; i <= 30; i++){
+
+            var check = document.createElement('input');
+            var label = document.createElement('label');
+            var br = document.createElement('br');
+
+            check.type = "checkbox";
+            check.checked = Math.floor(Math.random() * 2);
+            check.id = 'chk' + i;
+            label.textContent = i;
+
+            dvCheck.appendChild(check);
+            dvCheck.appendChild(label);
+            dvCheck.appendChild(br);
+        }
+
+        var checks = dvCheck.getElementsByTagName('input');
+
+        var chkSelecionados = [].filter.call(checks, function(chk){
+
+            return chk.checked ? true: chk;
+        });
+
+        console.log(chkSelecionados);
+
+    </script>
+</body>
+</html>
